@@ -25,6 +25,23 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+h1 {
+  @apply text-4xl font-bold;
+}
+h2 {
+  @apply text-3xl font-bold;
+}
+h3 {
+  @apply text-2xl font-bold;
+}
+label {
+  @apply text-black;
+}
+
+input,
+textarea {
+  @apply block w-full px-3 py-2 border rounded border-neutral-950 text-black;
+}
 
 @layer utilities {
   .text-balance {
