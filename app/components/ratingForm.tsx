@@ -1,17 +1,18 @@
 "use client";
 import { addRating } from "@/app/actions/rating";
 
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 
-export default function RatingForm({ gameId }) {
+export default function RatingForm({ gameId }: { gameId: number }) {
   const [rate, setRate] = useState(0);
   const [voted, setVoted] = useState(false);
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.FormEvent<HTMLSelectElement>) => {
     console.log("dropdown fired");
-    setRate(event.target.value);
+    const value = parseInt(event.currentTarget.value);
+    setRate(value);
   };
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const response = await addRating(rate, gameId);
     setVoted(true);
