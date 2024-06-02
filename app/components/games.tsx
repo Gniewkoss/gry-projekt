@@ -9,7 +9,7 @@ export default async function Games() {
     <div className=" grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {games?.map((game) => {
         return (
-          <div className=" bg-stone-500 rounded-2xl p-4 m-3">
+          <div className=" bg-stone-500 rounded-2xl p-4 m-3" key={game.id}>
             <h2>{game.title}</h2>
 
             <img
