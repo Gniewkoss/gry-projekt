@@ -6,7 +6,8 @@ export default function LoginButtons() {
   const [isLogedIn, setIsLogedIn] = useState<string | false>(false);
 
   useEffect(() => {
-    const companyId = localStorage.getItem("companyId");
+    const companyId =
+      (window?.localStorage.getItem("companyId") as string) || "";
     setIsLogedIn(companyId || false);
   }, []);
 

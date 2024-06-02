@@ -1,8 +1,17 @@
 "use client";
 
 import { addGame } from "@/app/actions/game";
+import { useEffect, useState } from "react";
 
 export default function AddNewGame() {
+  const [companyId, setCompanyId] = useState("");
+
+  useEffect(() => {
+    if (window.localStorage.getItem("companyId")) {
+      setCompanyId(window.localStorage.getItem("companyId") as string);
+    }
+  }, []);
+
   return (
     <div>
       <h1>Add Games</h1>
@@ -23,15 +32,7 @@ export default function AddNewGame() {
             Website
             <input name="www" type="text" />
           </label>
-          <label>
-            Company id
-            <input
-              name="company_id"
-              type="number"
-              value={localStorage.getItem("companyId") as string}
-              required
-            />
-          </label>
+
           <label>
             Image
             <input name="image" type="text" />
@@ -44,6 +45,13 @@ export default function AddNewGame() {
             Release date
             <input name="release_date" type="date" />
           </label>
+          <input
+            name="company_id"
+            type="number"
+            value={companyId}
+            required
+            hidden
+          />
           <button className="bg-green-500 rounded-lg p-2">Submit</button>
         </form>
       </div>
