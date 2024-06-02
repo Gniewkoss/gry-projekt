@@ -2,12 +2,9 @@
 
 import { useState } from "react";
 import { loginCompany } from "@/app/actions/login";
-import { useRouter } from "next/navigation";
 
 export default function Login() {
   const [errorMsg, setErrorMsg] = useState("");
-
-  const router = useRouter();
 
   // handle submit
   const handleSubmit = async (event: any) => {
@@ -31,7 +28,7 @@ export default function Login() {
       localStorage.setItem("companyId", companyId);
 
       // redirect to Add New Game:
-      router.replace("/game/add-new");
+      window.location.href = "/game/add-new";
     }
   };
 
