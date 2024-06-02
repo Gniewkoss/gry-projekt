@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import LoginButtons from "./loginButtons";
 
 export default function Navbar() {
   const router = useRouter();
@@ -14,14 +15,9 @@ export default function Navbar() {
           onClick={() => router.push("/company/add-new")}
           className="bg-red-500 rounded-lg px-3 py-1"
         >
-          Register your game
+          Register your company
         </button>
-        <button
-          onClick={() => router.push("/addUser")}
-          className="bg-green-500 rounded-lg px-3 py-1"
-        >
-          Log in
-        </button>
+        <LoginButtons />
       </div>
     </div>
   );
