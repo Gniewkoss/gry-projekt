@@ -11,6 +11,7 @@ export default async function Games() {
         return (
           <div className=" bg-stone-500 rounded-2xl p-4 m-3" key={game.id}>
             <h2>{game.title}</h2>
+            <p>Studio: {game.studio}</p>
 
             <img
               className=" w-max object-cover rounded-lg shado"

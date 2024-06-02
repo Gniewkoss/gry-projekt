@@ -44,7 +44,18 @@ export const addGame = async (formData: FormData) => {
 
 export const getAllGames = async () => {
   try {
-    const data = await sql`SELECT * FROM game`;
+    const data = await sql`SELECT 
+    g.id, 
+    g.title, 
+    g.description, 
+    g.www, 
+    g.image, 
+    g.game_type, 
+    g.release_date, 
+    c.name as studio
+    FROM game as g
+    JOIN company as c ON g.company_id = c.id
+    `;
     console.log("FETCHING DATA:", data.rows);
     return data.rows;
   } catch (error) {
