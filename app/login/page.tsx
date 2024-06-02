@@ -3,16 +3,21 @@
 import { useState } from "react";
 import { loginCompany } from "@/app/actions/login";
 
+type LoginResponse = {
+  login: string;
+  companyId?: number;
+};
+
 export default function Login() {
   const [errorMsg, setErrorMsg] = useState("");
 
   // handle submit
-  const handleSubmit = async (event: any) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log("handleSubmit FIRED!");
     const formData = new FormData(event.currentTarget);
 
-    const response = await loginCompany(formData);
+    const response = (await loginCompany(formData)) as LoginResponse;
 
     console.log("RESPONSE ON PAGE: ", response);
 
@@ -25,7 +30,7 @@ export default function Login() {
       // set local storage variable for company id:
       const companyId = response?.companyId;
 
-      localStorage.setItem("companyId", companyId);
+      localStorage.setItem("companyId", companyId + "");
 
       // redirect to Add New Game:
       window.location.href = "/game/add-new";
