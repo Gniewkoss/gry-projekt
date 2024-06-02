@@ -3,8 +3,6 @@
 import { addGame } from "@/app/actions/game";
 
 export default function AddNewGame() {
-  console.log("CHECKING LOCAL STORAGE", localStorage.getItem("companyId"));
-
   return (
     <div>
       <h1>Add Games</h1>
