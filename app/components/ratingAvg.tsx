@@ -5,7 +5,7 @@ export default async function RatingAvg({ gameId }: { gameId: number }) {
 
   return (
     <div>
-      <h3>Avg rating: {avarageRate} </h3>
+      <h3 className="text-sm">Avg rating: {avarageRate} </h3>
     </div>
   );
 }

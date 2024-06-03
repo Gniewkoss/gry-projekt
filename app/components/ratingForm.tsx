@@ -18,10 +18,13 @@ export default function RatingForm({ gameId }: { gameId: number }) {
     setVoted(true);
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="mt-4">
       {voted == false && (
-        <div>
-          <select className="text-black" onChange={handleChange}>
+        <div className="flex flex-col items-start space-y-4">
+          <select
+            className="bg-white text-black border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            onChange={handleChange}
+          >
             <option value={0}>Rate game </option>
             <option value={1}>1</option>
             <option value={2}>2</option>
@@ -31,7 +34,12 @@ export default function RatingForm({ gameId }: { gameId: number }) {
           </select>
 
           {rate > 0 && (
-            <button className="border rounded p-1">Rate game</button>
+            <button
+              type="submit"
+              className="bg-blue-500 text-white font-semibold rounded-lg p-2 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              Rate game
+            </button>
           )}
         </div>
       )}

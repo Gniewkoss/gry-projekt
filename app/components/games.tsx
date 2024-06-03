@@ -10,9 +10,10 @@ export default async function Games() {
       {games?.map((game) => {
         return (
           <div className="bg-stone-500 rounded-2xl p-4 m-3" key={game.id}>
-            <h2 className="text-xl font-bold mb-2">{game.title}</h2>
-            <p className="font-semibold">
-              Studio: <span className="font-normal">{game.studio}</span>
+            <h2 className="text-2xl font-bold mb-2">{game.title}</h2>
+            <p className="font-semibold text-yellow-300 mb-2">
+              Studio:{" "}
+              <span className="font-normal text-white">{game.studio}</span>
             </p>
 
             <img
@@ -38,13 +39,19 @@ export default async function Games() {
                 year: "numeric",
               })}
             </p>
-
-            <p className="mb-4">
+            <p className="mb-4 text-white">
               <span className="font-semibold">Game type:</span> {game.game_type}
             </p>
-            <RatingAvg gameId={game.id as number} />
-            <hr className="my-4" />
-            <RatingForm gameId={game.id as number} />
+
+            <div className="bg-stone-600 p-4 rounded-lg mb-4 shadow-md">
+              <RatingAvg gameId={game.id as number} />
+            </div>
+
+            <hr className="my-4 border-gray-400" />
+
+            <div className=" ">
+              <RatingForm gameId={game.id as number} />
+            </div>
           </div>
         );
       })}
