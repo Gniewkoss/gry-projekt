@@ -14,8 +14,9 @@ export default function AddNewGame() {
 
   return (
     <div>
-      <h1>Add Games</h1>
       <div className="flex flex-col items-center justify-center h-screen ">
+        <h1 className="m-5 ">Add new Game to your commpany</h1>
+
         <form
           action={addGame}
           className="flex flex-col gap-4 bg-gray-200 p-10 rounded-2xl w-1/2"
